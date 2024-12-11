@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #ebfbfb;
+}
+
+.navbar .nav-link {
+    font-weight: bold;
+}
+
+.navbar .buttons {
+    margin-left: auto;
+}
+
+.navbar .carts {
+    margin-right: 40px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem;
+    vertical-align: middle;
+    border-top: 1px solid #dee2e6;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+}
+
+.cart-image {
+    max-height: 100px; /* Adjust the height as needed */
+    max-width: 100px; /* Adjust the width as needed */
+    object-fit: cover;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.btn-primary,
+.btn-secondary {
+    margin-top: 10px;
+}

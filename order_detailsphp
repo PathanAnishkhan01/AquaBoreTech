@@ -1,0 +1,101 @@
+<?php
+session_start();
+
+// Check if user is an admin
+// This is a placeholder, replace with your own admin check logic
+if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
+    echo "Access denied.";
+    exit();
+}
+
+// Connect to the database
+include 'config.php';
+
+$order_id = $_GET['order_id'];
+
+// Fetch order details
+$sql = "SELECT * FROM orders WHERE id = $order_id";
+$order_result = $conn->query($sql);
+$order = $order_result->fetch_assoc();
+
+// Fetch order items
+$sql = "SELECT oi.*, p.name FROM order_items oi JOIN products p ON oi.product_id = p.id WHERE oi.order_id = $order_id";
+$items_result = $conn->query($sql);
+
+$order_items = [];
+if ($items_result->num_rows > 0) {
+    while ($row = $items_result->fetch_assoc()) {
+        $order_items[] = $row;
+    }
+}
+
+$conn->close();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="css\order_details.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light pl-5 mt-2 font-weight-bold" style="background-color: rgb(235, 251, 251);">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item pr-4">
+                <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item active pr-4">
+                <a class="nav-link" href="products.php">Products <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item pr-4">
+                <a class="nav-link" href="contactUs.php">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="Aboutus.html">About Us</a>
+            </li>
+        </ul>
+    </div>
+    <div class="carts" style="margin-right: 40px;">
+        <a href="cart.php"><i class="fa-solid fa-cart-shopping" style="font-size: larger;cursor: pointer;"></i></a>
+    </div>
+</nav>
+
+<main class="content">
+    <div class="container">
+        <h2>Order Details (Order ID: <?php echo $order['id']; ?>)</h2>
+        <p><strong>User Email:</strong> <?php echo $order['user_email']; ?></p>
+        <p><strong>Total Amount:</strong> ₹<?php echo $order['total_amount']; ?></p>
+        <p><strong>Order Date:</strong> <?php echo $order['order_date']; ?></p>
+        <h3>Order Items</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($order_items as $item): ?>
+                <tr>
+                    <td><?php echo $item['name']; ?></td>
+                    <td>₹<?php echo $item['price']; ?></td>
+                    <td><?php echo $item['quantity']; ?></td>
+                    <td>₹<?php echo $item['price'] * $item['quantity']; ?></td>
+                </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+</html>

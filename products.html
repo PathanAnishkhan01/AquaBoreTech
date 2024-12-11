@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css\products.css">
+</head>
+
+<body>
+  <!-- Nav-Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light pl-5 mt-2 font-weight-bold"
+    style="background-color: rgb(235, 251, 251);">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active pr-4">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item pr-4">
+          <a class="nav-link" href="products.html">Products</a>
+        </li>
+        <!-- <li class="nav-item pr-4">
+          <a class="nav-link" href="#">Services</a>
+        </li> -->
+        <li class="nav-item pr-4">
+          <a class="nav-link" href="contactUs.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="Aboutus.html">About Us</a>
+        </li>
+      </ul>
+
+    </div>
+    <div class="buttons" style="margin-left: 270px;">
+      <button type="button" class="btn btn-outline-primary mr-3" onclick="login()">Login</button>
+      <button type="button" class="btn btn-outline-primary mr-5">Sign Up</button>
+    </div>
+    <div class="carts" style="margin-right: 40px;">
+      <i class="fa-solid fa-cart-shopping" style="font-size: larger;" herf="add"></i>
+    </div>
+  </nav>
+    <!-- <header class="header">
+    <div class="container">
+      <h1>Modern E-commerce</h1>
+    </div>
+  </header> -->
+
+<!-- Products page -->
+    <main class="content">
+        <div class="container">
+            <div class="product-nav">
+                <h2>Products</h2>
+                <button>See all</button>
+            </div>
+            <div class="products-grid">
+                <!-- Product Cards -->
+                <div class="product-card">
+                    <img src="img/b1.jpg" alt="Product 1" onclick="description()">
+                    <h3>Product 1</h3>
+                    <p>₹99000</p>
+                    <button>Add to Cart</button>
+                </div>
+                <div class="product-card">
+                    <img src="img/b3.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>₹56770</p>
+                    <button>Add to Cart</button>
+                </div>
+                <!-- Add more product cards as needed -->
+                <div class="product-card">
+                    <img src="img\b2.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>₹10000</p>
+                    <button>Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="img\b1.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>₹299999</p>
+                    <button>Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/b2.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>₹28299</p>
+                    <button>Add to Cart</button>
+                </div>
+
+                <div class="product-card">
+                    <img src="img/b3.jpg" alt="Product 2">
+                    <h3>Product 2</h3>
+                    <p>₹81921</p>
+                    <button>Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+
+</body>
+
+</html>

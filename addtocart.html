@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Cart - Aqua Bore Tech</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-image: url("/img/maxresdefault.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: center; /* Center the content horizontally */
+            align-items: center;
+            color: #fff;
+        }
+
+        .logo h2 {
+            margin: 0;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-left: 575px;
+        }
+
+        .dashboard-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: orange;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+        }
+
+        .dashboard-btn:hover {
+            background-color: red;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+        }
+        
+
+        .cart-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .cart-container:hover {
+            transform: scale(1.05);
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 15px 0;
+        }
+
+        .cart-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .cart-item-info {
+            flex-grow: 1;
+        }
+
+        .cart-item-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item-info p {
+            font-size: 16px;
+            color: #777;
+        }
+
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-quantity input[type="number"] {
+            width: 50px;
+            padding: 5px;
+            margin: 0 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .cart-item-quantity button {
+            background-color: orange;
+            color: white;
+            border: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .cart-item-quantity button:hover {
+            background-color: red;
+        }
+
+        .cart-item-total {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .cart-total {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .cart-total p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .cart-total p span {
+            font-weight: bold;
+        }
+
+        .discount {
+            color: green;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .pay-now-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            float: right;
+            transition: background-color 0.3s;
+        }
+
+        .pay-now-btn:hover {
+            background-color: #218838;
+        }
+
+        .empty-cart {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .empty-cart h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .empty-cart img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .logo img {
+                margin-left: 20px;
+            }
+
+            .dashboard-btn {
+                top: 10px;
+                left: 10px;
+                padding: 8px 15px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h2>Aqua Bore Tech</h2>
+            <a href="products.html"><button class="dashboard-btn">Back</button></a>
+        </div>
+    </header>
+
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+
+        <!-- Cart Items Start -->
+        <div class="cart-item">
+            <img src="img/b2.jpg" alt="MACHINE Item 1">
+            <div class="cart-item-info">
+                <h3>MACHINE Item 1</h3>
+                <p>Price: 10000.00 INR</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" min="1" value="1" onchange="updateTotal(this, 10)">
+                <button onclick="deleteItem(this)">Delete</button>
+            </div>
+            <div class="cart-item-total">10.00 INR</div>
+        </div>
+        <div class="cart-item">
+            <img src="/img/b1.jpg" alt="MACHINE Item 2">
+            <div class="cart-item-info">
+                <h3>MACHINE Item 2</h3>
+                <p>Price: 20.00 INR</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" min="1" value="1" onchange="updateTotal(this, 20)">
+                <button onclick="deleteItem(this)">Delete</button>
+            </div>
+            <div class="cart-item-total">20.00 INR</div>
+        </div>
+        <!-- <div class="cart-item">
+            <img src="machine part_1.jpg" alt="MACHINE Item 3">
+            <div class="cart-item-info">
+                <h3>MACHINE Item 3</h3>
+                <p>Price: 30.00 INR</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" min="1" value="1" onchange="updateTotal(this, 30)">
+                <button onclick="deleteItem(this)">Delete</button>
+            </div>
+            <div class="cart-item-total">30.00 INR</div>
+        </div>
+        <div class="cart-item">
+            <img src="moter.jpg" alt="MACHINE Item 4">
+            <div class="cart-item-info">
+                <h3>MACHINE Item 4</h3>
+                <p>Price: 90.00 INR</p>
+            </div>
+            <div class="cart-item-quantity">
+                <input type="number" min="1" value="1" onchange="updateTotal(this, 90)">
+                <button onclick="deleteItem(this)">Delete</button>
+            </div>
+            <div class="cart-item-total">90.00 INR</div>
+        </div> -->
+        <!-- Cart Items End -->
+
+        <!-- Empty Cart Start -->
+        <!-- <div class="empty-cart">
+            <h2>Your cart is empty</h2>
+            <img src="empty-cart.png" alt="Empty Cart">
+            <p>Add some delicious food to your cart</p>
+        </div> -->
+        <!-- Empty Cart End -->
+
+        <!-- Cart Total Start -->
+        <div class="cart-total">
+            <p>Total Items: <span id="totalItems">4</span></p>
+            <p>Total Quantity: <span id="totalQuantity">4</span></p>
+            <p>Total Price: <span id="totalPrice">150.00 INR</span></p>
+            <p class="discount">Discount: 00</p>
+            <button class="pay-now-btn" onclick="payNow()">Pay Now</button>
+        </div>
+        <!-- Cart Total End -->
+
+    </div>
+
+    <script>
+        function updateTotal(input, price) {
+            const quantity = input.value;
+            const total = quantity * price;
+            input.parentNode.nextElementSibling.textContent = `${total}.00 INR`;
+            calculateTotal();
+        }
+
+        function deleteItem(button) {
+            button.parentNode.parentNode.remove();
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const itemTotals = document.querySelectorAll('.cart-item-total');
+            let totalItems = 0;
+            let totalQuantity = 0;
+            let totalPrice = 0;
+
+            itemTotals.forEach(item => {
+                const price = parseFloat(item.textContent.replace('INR', ''));
+                const quantity = parseInt(item.previousElementSibling.querySelector('input[type="number"]').value);
+                totalPrice += price;
+                totalQuantity += quantity;
+                totalItems += 1;
+            });
+
+            document.getElementById('totalItems').textContent = totalItems;
+            document.getElementById('totalQuantity').textContent = totalQuantity;
+            document.getElementById('totalPrice').textContent = `${totalPrice}.00 INR`;
+        }
+
+        function payNow() {
+            alert("Redirecting to payment page...");
+            window.location.href = "payment.html";
+        }
+
+        window.onload = calculateTotal;
+    </script>
+
+</body>
+
+</html>
+

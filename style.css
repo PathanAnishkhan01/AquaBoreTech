@@ -1,0 +1,325 @@
+.nav-link.active {
+  color: #007bff; /* Adjust this color to your preferred highlight color */
+  font-weight: bold;
+  border-bottom: 2px solid #007bff; /* Adds a bottom border to indicate active page */
+}
+
+  
+/* Center-aligning Navbar Links */
+.navbar-nav {
+  margin: 0 auto;
+}
+
+/* For screens larger than 768px */
+@media (min-width: 768px) {
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+/* Additional Responsive Adjustments */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+  .navbar-nav .nav-item {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+
+/* Navbar Toggler Button */
+.navbar-toggler {
+  border: none;
+  outline: none;
+}
+
+/* Navbar background */
+.navbar {
+  background-color: rgb(235, 251, 251);
+}
+
+/* Navbar collapse animation */
+.navbar-collapse.collapse {
+  display: none !important;
+}
+.navbar-collapse.collapse.show {
+  display: block !important;
+  animation: slideDown 0.4s ease-in-out;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Navbar Links Styling */
+.navbar-nav .nav-item .nav-link {
+  color: #007bff;
+  padding: 10px;
+  font-weight: 600;
+}
+
+/* Login, Signup, and Cart Button Styling */
+.navbar .btn-outline-primary {
+  font-weight: 600;
+  border-color: #007bff;
+}
+.navbar .btn-warning {
+  color: white;
+}
+
+/* Cart Icon Styling */
+.cart-icon i {
+  font-size: 1.2em;
+  color: #007bff;
+}
+
+/* Responsive Styling */
+@media (max-width: 992px) {
+  .navbar-nav {
+    background-color: rgb(235, 251, 251);
+    padding: 1rem;
+    width: 100%;
+  }
+  .navbar-nav .nav-item {
+    margin-bottom: 10px;
+  }
+  .navbar-nav .nav-link {
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+  .navbar-nav .nav-item {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+  .container {
+    padding: 10px;
+  }
+  /* Cart icon and buttons in small screens */
+  .navbar .btn,
+  .cart-icon {
+    font-size: 16px;
+  }
+}
+
+
+/* General Animation Styles */
+.fade-in {
+  animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Animated Navbar Styles */
+.navbar {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar:hover {
+  background-color: rgba(235, 251, 251, 0.9);
+  transform: scale(1.02);
+}
+
+/* Quotation Button Styles */
+#quotation-btn {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    background-color: #ffc107;
+  }
+  50% {
+    transform: scale(1.05);
+    background-color: #ffcc00;
+  }
+}
+
+/* Product Card Animations */
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: slideInUp 1s ease-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+/* customer slider  */
+.customer-slider {
+  overflow: hidden; /* Hide overflow */
+  white-space: nowrap; /* Prevent wrapping */
+  position: relative;
+}
+
+.slider-wrapper {
+  display: inline-block;
+  animation: scroll 30s linear infinite; /* Adjust duration for speed */
+}
+
+.customer-card {
+  display: inline-block; /* Display in a single line */
+  width: 150px; /* Adjust width as needed */
+  margin: 0 30px; /* Space between cards */
+  text-align: center;
+  opacity: 0.8; /* Slight transparency */
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+}
+
+/* Scale and change opacity on hover */
+.customer-card:hover {
+  transform: scale(1.1); /* Scale up on hover */
+  opacity: 1; /* Full opacity on hover */
+}
+
+.customer-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Keyframes for scrolling effect */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Adjust based on total width */
+  }
+}
+
+/* Form Control Animation */
+.form-control {
+  border: 1px solid #007bff;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  transform: scale(1.02);
+}
+
+/* Button Styles */
+.btn {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: bounceIn 0.5s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Footer Styles */
+footer {
+  background-color: #007bff;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  animation: fadeIn 1s ease;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-nav .nav-item {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .card, .customer-card {
+    margin-bottom: 20px;
+    animation: fadeInScale 0.8s ease-in-out;
+  }
+
+  /* Adjust the map iframe */
+  iframe {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+/* Additional Styles for Enhancements */
+.homeproduct {
+  font-size: 2rem;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.hr1, .hr2 {
+  border: 1px solid rgba(0, 123, 255, 0.3);
+  animation: growWidth 1s ease-in-out;
+}
+
+@keyframes growWidth {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
